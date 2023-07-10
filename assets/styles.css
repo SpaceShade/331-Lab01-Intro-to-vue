@@ -179,4 +179,9 @@ ul {
   .review-form {
     width: 90%;
   }
+  .disabledButton{
+    background-color:#d8d8d8;
+    cursor: not-allowed;
+
+  }
 }

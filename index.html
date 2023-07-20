@@ -1,6 +1,3 @@
-<!-- Import Js -->
-
-</body>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,46 +12,19 @@
 
 <body>
     <div id="app">
-    <div class="nav-bar"></div>
-    <div class="cart">Cart{{ cart}}</div>
-    <div class ="product-display">
-        <div class ="product-container">
-          <div class="product-image">
-            <img :src="image">
-          </div>
-        </div>
-    </div>
-        <div class="product-info">
-          <h1>{{title}}</h1>
+        <div class="nav-bar"></div>
+        <div class="cart">Cart({{ cartDisplay }})</div>
+        
 
-           
-           <a :href="link"><h1>{{product}}</h1></a>
-           <!--Status -->
-
-           <p v-if="inStock">In Stock</p>         
-           <p v-else-if="invetory <= 10 && inventory > 0">Almost out of Stock</p>
-           <p v-else>Out of Stock</p>
-
-           <p v-if="onSale">On sale</p>
-           <p v-else>Not no sale</p>
-           <h2>{{description}}</h2>
-           <ul>
-              <li v-for="detail in details">{{detail}}</li>
-           </ul>
-           <div v-for="size in size">{{size}}</div>
-           <div v-for="(variant,index) in variants" :key="variant.id"
-           @mouseover="updateVariant(index)"
-           class="color-circle":style="{backgroundColor: variant.color}">
-              {{ variant.color}}
-           </div>
-           <button class="button" :disabld='!inStock'@click="addToCart":class="{disabledButton: !inStock}">Add To Cart</button>
-           <button class="button" @click="toggleStockStatus">Toggle</button>
-           
-         </div>
-        </div>
+        <product-display :premium="premium" @add-to-cart="updateCart" @remove-from-cart="removeCart"></product-display>
     </div>
 
     <!-- Import Js -->
+    <script src="./components/ProductDetails.js"></script>
+    <script src="./components/ProductDisplay.js"></script>
+    <script src="./components/ReviewForm.js"></script>
+    <script src="./components/ReviewList.js"></script>
+
     <script src="./main.js"></script>
 </body>
 
